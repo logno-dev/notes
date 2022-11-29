@@ -38,6 +38,7 @@ Create a smart hub for QA techs that guides daily tasks, including but not limit
         * #### Cons:
             * Data accessible only if client is installed
             * Updates are less seamless (not much of an issue though)
+
 * Traceability - Ideally, a finished product should be attached to a batched lot of white mass. Currently, if a single product type is stretched out among several tanks, it is ambiguous which tank a finished product came from. Do we want to push for better traceability? We do not timestamp or do extended codes on our date encoder, so even if we made a change to how we record the data, we would not be able to trace a cup plucked from the shelf to a specific tank batch.
 * If the above is dismissed, I’d push to remove the finished product from the lot data entry and record it in a distinct collection.
 * Who should have access to data
