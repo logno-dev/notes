@@ -1,10 +1,10 @@
 
 **QA Data Entry**
 
-##Goal:
+## Goal:
 To create a simple way for techs to enter data revolving around the batched and finished products produced in Indio. To create a robust and intuitive way to review and report the data including remote access.
 
-##Stretch Goal:
+## Stretch Goal:
 Create a smart hub for QA techs that guides daily tasks, including but not limited to calibration check reminders, viscosity testing, and shelf life testing.
 
 **Requirements:**
