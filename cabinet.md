@@ -1,0 +1,10 @@
+# Plans for a DIY Arcade Cabinet
+
+## Materials
+
+- 3/8" MDF 4x8 x 2 - $25.97ea [link](https://www.homedepot.com/p/3-8-in-x-4-ft-x-8-ft-Particle-Board-Panel-604461/100058485)
+- Arcade DIY Kit Joystick and Buttons - $56.99 [link](https://www.ebay.com/itm/355009231476?_trkparms=amclksrc%3DITM%26aid%3D1110006%26algo%3DHOMESPLICE.SIM%26ao%3D1%26asc%3D20201210111314%26meid%3D38c1cb5e087044dc832a356e824c3ede%26pid%3D101195%26rk%3D5%26rkt%3D12%26sd%3D364454393801%26itm%3D355009231476%26pmt%3D1%26noa%3D0%26pg%3D4429486%26algv%3DSimplAMLv11WebTrimmedV3MskuWithLambda85KnnRecallV1V2V4ItemNrtInQueryAndCassiniVisualRankerAndBertRecallWithVMEV3CPCAuto&_trksid=p4429486.c101195.m1851&amdata=cksum%3A35500923147638c1cb5e087044dc832a356e824c3ede%7Cenc%3AAQAIAAABYObhgc4Nk8%252BdtAwOww4FKLaj%252FQ5qqgDlQCuqZA43WcPFUWDERCUugbbOk7XQv0JXlBfqCg2xKF3WcPghxGMFw2oSlXvfExEaMYr7I7LmrHcP6czY1wIMt0ORyKiCWt95xldincyyBx3g%252BNDW%252B%252FhWUgTaBhK6xAm%252BJIbCOMehu%252Bdw9bXYkTBuzlV1gSzA3y4RjeBgmlUbbyeM5jpCDxIKN5JIXfI42%252BT6mEDKTJBXCMGr%252BY6LtrSSJBl05y%252B9AeTzo6Z%252BXTOgq6MvRY1jtsuO0MqSEYHCQLzFNlyhMK2N1lg8K2bN0Q%252FcdXsucHqv95JmsUdKYMP34WE3QUXH%252FSxF3loty1BwfWo2G%252BqmNlYNI6yihydx93Vt4f6FKisQOkN%252BJTGYC0CgmRBW8M9zl41cdpXfeNUw6aWqYvhkDYLQqRsA3c8qCIQhSBfJJSEhjjqGNyh6tXg6MDeB8H6CS7axTO0%253D%7Campid%3APL_CLK%7Cclp%3A4429486)
+- Mini pc - ~$100
+- Paint - ~ $30
+
+#### Total - $238.93 pre-tax
