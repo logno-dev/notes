@@ -141,3 +141,61 @@ int func() {
 #### lvalue vs rvalue
 **lvalue** - refer to a memory location. Can be on the left or right side of an assignment.
 **rvalue** - refer to data value stored at some address in memory. Can only appear on the right side of an assignment.
+
+### Constants and Literals
+
+Fixed values. The values themselves are called literals.
+
+Literals can be a decimal, octal, or hexadecimal. A prefix indicates which. 0x or 0X for hexadecimal, 0 for octal, and nothing for decimal. A suffix can be used in combination to indicate unsigned (U) and long (L).
+
+```
+// Example literals
+
+212 // Legal - decimal
+215u // Legal - unsigned decimal
+0xFeeL // Legal - hexadecimal long
+078 // Illegal - 0 indicates octal, but 8 is not an octal digit
+032UU // Illegal - cannot repeat a suffix
+
+// More legal examples
+
+85 // decimal
+0213 // octal
+0x4b // hexadecimal
+30 // int
+30u // unsigned int
+30l // long
+30ul // unsigned long
+
+```
+Floating-point literals are made up of an integer part, a decimal point, a fractional part, and an exponent part. They may be represented in decimal or exponential form.
+
+```
+// Example floating-points
+
+3.14159 // legal
+314159E-5L // legal
+510E // illegal - incomplete exponent
+210f // illegal - no decimal or exponent
+.e55 // illegal - missing integer or fraction
+
+```
+Character literals are enclosed in single quotes. Can be a plain character (e.g., 'x'), and escape sequence (e.g., '\t'), or a universal character (e.g.,'\u02C0').
+
+**Escape Sequence Characters:**
+| Escape Sequence   | Meaning    |
+|--------------- | --------------- |
+| \\   | \ character   |
+| \'   | ' character   |
+| \"   | " character   |
+| \?   | ? character   |
+| \a   | Alert or bell   |
+| \b   | Backspace   |
+| \f   | Form feed   |
+| \n   | Newline   |
+| \r   | Carriage return   |
+| \t   | Horizontal tab   |
+| \v   | Vertical tab   |
+| \ooo   | Octal number of on to three digits   |
+| \xhh   | Hecadecimal number of one or more digits   |
+
