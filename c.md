@@ -14,9 +14,13 @@ int main(void) {
 ```
 
 `int` refers to what will be returned by the function
+
 `main` - all C programs require a `main` function as an entry point to the program
+
 `void` is needed when a function does not take any arguments.
+
 `printf` is a function of `stdio.h` that prints to the console.
+
 `return 0` - the function must have a return value.
 
 ### Data Types
