@@ -121,4 +121,23 @@ value of c : 30
 value of f : 23.333334
 ```
 
+or with function
+```C
+// function declaration
+int func();
 
+int main() {
+
+    //function call
+    int i = func();
+}
+
+// function definition
+int func() {
+    return 0;
+}
+```
+
+#### lvalue vs rvalue
+**lvalue** - refer to a memory location. Can be on the left or right side of an assignment.
+**rvalue** - refer to data value stored at some address in memory. Can only appear on the right side of an assignment.
