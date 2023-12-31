@@ -8,8 +8,8 @@
 #include <stdio.h> // Import packages needed
 
 int main(void) {
-    printf("Hello World\n")
-    return 0
+    printf("Hello World\n");
+    return 0;
 }
 ```
 
@@ -61,4 +61,64 @@ int main(void) {
 | float    | 4 byts    | 1.2E-38 to 3.4E+38    | 6 decimal places    |
 | double    | 8 bytes   | 2.3E-308 to 1.7E+308   | 15 decimal places   |
 | long double   | 10 bytes   | 3.4E-4932 to 1.1E+4932   | 19 decimal places   |
+
+### Variables
+
+- Can be composed of letters, digits, and the underscore
+- Must begin with a letter or underscore
+- Case sensitive
+
+#### Declaration
+
+```C
+// Declaration without initializing
+int i, j, k;
+char c, ch;
+float f, salary;
+double d;
+
+// Declaration with initializing
+extern int d = 3, f = 5;
+int d = 3, f = 5;
+byte z = 22;
+char x = 'x';
+```
+
+`extern` is used to declare a variable that can be used across files. Variables can be declared multiple times in a program, but only once in a file, function, or code block.
+
+```C
+#include <stdio.h>
+
+// Variable declaration:
+extern int a, b;
+extern int c;
+extern float f;
+
+int main () {
+
+    /* variable definition */
+    int a, b;
+    int c;
+    float f;
+
+    /* actual initialization */
+    a = 10;
+    b = 20;
+
+    c = a + b;
+    printf("value of c : %d \n", c);
+
+    f = 70.0/3.0;
+    printf("value of f : %f \n", f);
+
+    return 0;
+}
+```
+
+**Result:**
+```
+value of c : 30
+value of f : 23.333334
+```
+
 
