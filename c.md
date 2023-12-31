@@ -185,10 +185,10 @@ Character literals are enclosed in single quotes. Can be a plain character (e.g.
 **Escape Sequence Characters:**
 | Escape Sequence   | Meaning    |
 |--------------- | --------------- |
-| \\   | \ character   |
-| \'   | ' character   |
-| \"   | " character   |
-| \?   | ? character   |
+| \\\   | \ character   |
+| \\'   | ' character   |
+| \\"   | " character   |
+| \\?   | ? character   |
 | \a   | Alert or bell   |
 | \b   | Backspace   |
 | \f   | Form feed   |
