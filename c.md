@@ -199,3 +199,64 @@ Character literals are enclosed in single quotes. Can be a plain character (e.g.
 | \ooo   | Octal number of on to three digits   |
 | \xhh   | Hecadecimal number of one or more digits   |
 
+### Interpreting Decarations
+
+Operators with identical precedence
+- unary * "dereference" operator which denots a pointer
+- binary [] "array subscription" operator denotes an array
+- (1+n)-ary () "function call" operator denotes a function
+- () grouping parentheses override the precedence and associativity of the rest of the listed operators
+
+| Operator    | Relative Precedence    | Associativity    |
+|---------------- | --------------- | --------------- |
+| [] (array subscription)    | 1    | Left-to-right    |
+| () (function call)    | 1    | Left-to-right    |
+| * (dereference)   | 2   | Right-to-left   |
+
+| Expression   | Interpretation    |
+|--------------- | --------------- |
+| thing[x]   | an array of size X of...   |
+| thing(t1, t2, t3)   | a function taking t1, t2, t3 and returning   |
+| *thing   | a pointer to...   |
+
+```C
+char *names[20];
+// [] takes precedence over *, so the 
+// interpretation is: name is an array 
+// of size 20 of a point to char
+
+char (*place)[10];
+// Parentheses override precedence, the
+// * is applied first:
+// place is a pointer to an array of size 10 char
+
+int fn(long, short);
+// no precedence to consider
+
+int *fn(void);
+// the () is applied first: fn is a function
+// taking void and returning a pointer to int
+
+int (*fp)(void);
+// overriding the precedence of ():
+// fp is a pointer to a functino taking void and
+// returning int
+
+int arr[5][8];
+/* Multidimensional arrays are not an exception to the
+rule; the [] operators are applied in left-to-right order
+according to the associativity in the table: arr is an array of 
+size 5 of an array of size 8 of int. */
+
+int **ptr;
+/* The two dereference operators have equal precedence, so
+the associativity takes effect. The operators are applied
+ina right-to-left order: ptr is a pointer to a pointer to an int.*/
+
+```
+
+#### Multiple Declarations
+
+
+
+
