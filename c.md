@@ -257,6 +257,72 @@ ina right-to-left order: ptr is a pointer to a pointer to an int.*/
 
 #### Multiple Declarations
 
+The comma can be used as a separator (**not** acting like the comma operator) in order to delimit multiple declarations within a single statement. The following statement contains five declarations:
 
+```C
+int fn(void), *ptr, (*fp)(int), arr[10][20], num;
+```
 
+objects declared above:
+- fn: a function taking void and returning int;
+- ptr: a pointer to an int;
+- fp: a pointer to a function taking int and returning int;
+- arr: an array of size 10 of an of array of size 20 of int;
+- num: int.
 
+### Fixed Width Integer Types
+
+The header `<stdin.h>` provides several fixed-width integer type definitions.
+
+```C
+/* commonly used types include */
+uint32_t u32 = 32; // exactly 32-bits wide
+
+uint8_t u8 = 255; // exactly 8-bits wide
+
+int64_t i64 = -65 // exactly 64 bits in two's complement representation
+
+```
+
+### Integer Types and Constants
+
+Signed integers can be of these types (the int after short, or long is optional):
+
+```C
+signed char c = 127; // required to be 1 byte, see remarks for further info
+signed short int si = 32767; // required to be at least 16 bits
+signed in i = 32767; // required to be at least 16 bits
+signed long int li = 2147483647; // required to be at least 64 bits
+
+/* unsigned versions */
+unsigned int i = 65635;
+unsigned short = 2767;
+unsigned char = 255;
+
+```
+
+For all the types but `char` the `signed` version is assumed if the `signed` or `unsigned` part is omitted. The type `char` constitutes a third character type, different from `signed char` and `unsigned char` and the signedness (or not) depends on the platform.
+
+Different types of integer constants (called *literals* in C jargon) can be written in defferent bases, and different wdith, based on their prefix or suffix.
+
+```C
+/* the following variables are initialized to the same value */
+int d = 42; // decimal constant (base 10)
+int o - 052; // octal constant (base 8)
+int x = 0xaf; // hexadecimal constants (base16)
+int X = 0XAf; // (letters 'a' through 'f' (case insensitive) represent 10 through 15)
+
+```
+
+Decimal constants are always signed. Hexadecimal constants start with 0x or 0X and octal constants start just with a 0. The latter two are `signed` or `unsigned` depending on whether the value fits into the signed type or not.
+
+```C
+/* suffixes to describe width and signedness : */
+long int i = 0x32; // no suffix represnt in, or long int
+unsigned in ui = 65535u; // u or U represent unsigned int, or long int
+long int li = 65536l; // l or L represent long int
+
+```
+Without a suffix the constant has the first type that fits its value, that is a decimal constant that is larger than INT_MAX is of type `long` if possible, or `long long` otherwise.
+
+The header file `<limits.h>` describes the limits of integers as folows. Their implementation-defined values shall be equal or greater in magnitude (absolute value) to those shown below, with the same sign.
