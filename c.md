@@ -26,6 +26,7 @@ int main(void) {
 ### Data Types
 
 **Basic Types -** arithmetic types
+
 - integer
 - floating-point
 
@@ -34,6 +35,7 @@ int main(void) {
 **Void Types -** indicates no value is available
 
 **Derived Types -** include
+
 - pointer
 - array
 - structure
@@ -42,25 +44,25 @@ int main(void) {
 
 #### Integer Types
 
-| Type    | Storage Size    | Value Range    |
-|---------------- | --------------- | --------------- |
-| char    | 1 byte    | -128 to 127 or 0 255    |
-| unsigned char    | 1 byte    | 0 to 255    |
-| signed char   | 1 byte   | -128 to 127   |
-| int   | 2 or 4 bytes   | -32,768 to 32,767 or -2,147,483,648 to 2,147,483,647   |
-| unsigned int   | 2 or 4 bytes   | 0 to 65,535 or 0 to 4,294,967,295   |
-| short   | 2 bytes   | -32,768 to 32,767   |
-| unsigned short   | 2 bytes   | 0 to 65,535   |
-| long   | 8 bytes   | -9223372036854775808 to 9223372036854775807  |
-| unsigned long   | 8 bytes   | 0 to 18446744073709551615   |
+| Type           | Storage Size | Value Range                                          |
+| -------------- | ------------ | ---------------------------------------------------- |
+| char           | 1 byte       | -128 to 127 or 0 255                                 |
+| unsigned char  | 1 byte       | 0 to 255                                             |
+| signed char    | 1 byte       | -128 to 127                                          |
+| int            | 2 or 4 bytes | -32,768 to 32,767 or -2,147,483,648 to 2,147,483,647 |
+| unsigned int   | 2 or 4 bytes | 0 to 65,535 or 0 to 4,294,967,295                    |
+| short          | 2 bytes      | -32,768 to 32,767                                    |
+| unsigned short | 2 bytes      | 0 to 65,535                                          |
+| long           | 8 bytes      | -9223372036854775808 to 9223372036854775807          |
+| unsigned long  | 8 bytes      | 0 to 18446744073709551615                            |
 
 #### Floating-Point Types
 
-| Type    | Storage Size    | Value Range    | Precision    |
-|---------------- | --------------- | --------------- | --------------- |
-| float    | 4 byts    | 1.2E-38 to 3.4E+38    | 6 decimal places    |
-| double    | 8 bytes   | 2.3E-308 to 1.7E+308   | 15 decimal places   |
-| long double   | 10 bytes   | 3.4E-4932 to 1.1E+4932   | 19 decimal places   |
+| Type        | Storage Size | Value Range            | Precision         |
+| ----------- | ------------ | ---------------------- | ----------------- |
+| float       | 4 byts       | 1.2E-38 to 3.4E+38     | 6 decimal places  |
+| double      | 8 bytes      | 2.3E-308 to 1.7E+308   | 15 decimal places |
+| long double | 10 bytes     | 3.4E-4932 to 1.1E+4932 | 19 decimal places |
 
 ### Variables
 
@@ -116,12 +118,14 @@ int main () {
 ```
 
 **Result:**
+
 ```
 value of c : 30
 value of f : 23.333334
 ```
 
 or with function
+
 ```C
 // function declaration
 int func();
@@ -139,7 +143,9 @@ int func() {
 ```
 
 #### lvalue vs rvalue
+
 **lvalue** - refer to a memory location. Can be on the left or right side of an assignment.
+
 **rvalue** - refer to data value stored at some address in memory. Can only appear on the right side of an assignment.
 
 ### Constants and Literals
@@ -168,6 +174,7 @@ Literals can be a decimal, octal, or hexadecimal. A prefix indicates which. 0x o
 30ul // unsigned long
 
 ```
+
 Floating-point literals are made up of an integer part, a decimal point, a fractional part, and an exponent part. They may be represented in decimal or exponential form.
 
 ```
@@ -180,49 +187,51 @@ Floating-point literals are made up of an integer part, a decimal point, a fract
 .e55 // illegal - missing integer or fraction
 
 ```
+
 Character literals are enclosed in single quotes. Can be a plain character (e.g., 'x'), and escape sequence (e.g., '\t'), or a universal character (e.g.,'\u02C0').
 
 **Escape Sequence Characters:**
-| Escape Sequence   | Meaning    |
+| Escape Sequence | Meaning |
 |--------------- | --------------- |
-| \\\   | \ character   |
-| \\'   | ' character   |
-| \\"   | " character   |
-| \\?   | ? character   |
-| \a   | Alert or bell   |
-| \b   | Backspace   |
-| \f   | Form feed   |
-| \n   | Newline   |
-| \r   | Carriage return   |
-| \t   | Horizontal tab   |
-| \v   | Vertical tab   |
-| \ooo   | Octal number of on to three digits   |
-| \xhh   | Hecadecimal number of one or more digits   |
+| \\\ | \ character |
+| \\' | ' character |
+| \\" | " character |
+| \\? | ? character |
+| \a | Alert or bell |
+| \b | Backspace |
+| \f | Form feed |
+| \n | Newline |
+| \r | Carriage return |
+| \t | Horizontal tab |
+| \v | Vertical tab |
+| \ooo | Octal number of on to three digits |
+| \xhh | Hecadecimal number of one or more digits |
 
-### Interpreting Decarations
+#### Interpreting Decarations
 
 Operators with identical precedence
-- unary * "dereference" operator which denots a pointer
+
+- unary \* "dereference" operator which denots a pointer
 - binary [] "array subscription" operator denotes an array
 - (1+n)-ary () "function call" operator denotes a function
 - () grouping parentheses override the precedence and associativity of the rest of the listed operators
 
-| Operator    | Relative Precedence    | Associativity    |
-|---------------- | --------------- | --------------- |
-| [] (array subscription)    | 1    | Left-to-right    |
-| () (function call)    | 1    | Left-to-right    |
-| * (dereference)   | 2   | Right-to-left   |
+| Operator                | Relative Precedence | Associativity |
+| ----------------------- | ------------------- | ------------- |
+| [] (array subscription) | 1                   | Left-to-right |
+| () (function call)      | 1                   | Left-to-right |
+| \* (dereference)        | 2                   | Right-to-left |
 
-| Expression   | Interpretation    |
-|--------------- | --------------- |
-| thing[x]   | an array of size X of...   |
-| thing(t1, t2, t3)   | a function taking t1, t2, t3 and returning   |
-| *thing   | a pointer to...   |
+| Expression        | Interpretation                             |
+| ----------------- | ------------------------------------------ |
+| thing[x]          | an array of size X of...                   |
+| thing(t1, t2, t3) | a function taking t1, t2, t3 and returning |
+| \*thing           | a pointer to...                            |
 
 ```C
 char *names[20];
-// [] takes precedence over *, so the 
-// interpretation is: name is an array 
+// [] takes precedence over *, so the
+// interpretation is: name is an array
 // of size 20 of a point to char
 
 char (*place)[10];
@@ -245,7 +254,7 @@ int (*fp)(void);
 int arr[5][8];
 /* Multidimensional arrays are not an exception to the
 rule; the [] operators are applied in left-to-right order
-according to the associativity in the table: arr is an array of 
+according to the associativity in the table: arr is an array of
 size 5 of an array of size 8 of int. */
 
 int **ptr;
@@ -264,13 +273,14 @@ int fn(void), *ptr, (*fp)(int), arr[10][20], num;
 ```
 
 objects declared above:
+
 - fn: a function taking void and returning int;
 - ptr: a pointer to an int;
 - fp: a pointer to a function taking int and returning int;
 - arr: an array of size 10 of an of array of size 20 of int;
 - num: int.
 
-### Fixed Width Integer Types
+#### Fixed Width Integer Types
 
 The header `<stdin.h>` provides several fixed-width integer type definitions.
 
@@ -284,7 +294,7 @@ int64_t i64 = -65 // exactly 64 bits in two's complement representation
 
 ```
 
-### Integer Types and Constants
+#### Integer Types and Constants
 
 Signed integers can be of these types (the int after short, or long is optional):
 
@@ -303,7 +313,7 @@ unsigned char = 255;
 
 For all the types but `char` the `signed` version is assumed if the `signed` or `unsigned` part is omitted. The type `char` constitutes a third character type, different from `signed char` and `unsigned char` and the signedness (or not) depends on the platform.
 
-Different types of integer constants (called *literals* in C jargon) can be written in defferent bases, and different wdith, based on their prefix or suffix.
+Different types of integer constants (called _literals_ in C jargon) can be written in defferent bases, and different wdith, based on their prefix or suffix.
 
 ```C
 /* the following variables are initialized to the same value */
@@ -323,36 +333,37 @@ unsigned in ui = 65535u; // u or U represent unsigned int, or long int
 long int li = 65536l; // l or L represent long int
 
 ```
+
 Without a suffix the constant has the first type that fits its value, that is a decimal constant that is larger than INT_MAX is of type `long` if possible, or `long long` otherwise.
 
 The header file `<limits.h>` describes the limits of integers as folows. Their implementation-defined values shall be equal or greater in magnitude (absolute value) to those shown below, with the same sign.
 
-| Macro    | Type    | Value    |
-|---------------- | --------------- | --------------- |
-| CHAR_BIT    | smallest object that is not a bit-field (byte) 8    |
-| SCHAR_MIN    | `signed char`    | -127 / -(27-1)    |
-| SCHAR_MAX   | `signed char`   | +127 / 27-1    |
-| UCHAR_MAX   | `unsigned char`   | 255 / 28-1   |
-| CHAR_MIN   | `char`   | see below   |
-| CHAR_MAX   | `char`   | see below   |
-| SHRT_MIN   | `short int`   |  -32767 / -(215 -1)  |
-| SHRT_MAX   | `short int`   |  +32767 / 215 -1  |
-| USHRT_MAX   | `unsigned short int`   |  65535 / 216 -1  |
-| INT_MIN   | `int`   |  -32767 / -(215 -1)  |
-| INT_MAX   | `int`   |  +32767 / 215 -1  |
-| UINT_MAX   | `unsigned int`   |  65535 / 216 -1  |
-| LONG_MIN   | `long int`   |  -2147483647 / -(231 - 1)  |
-| LONG_MAX   | `long int`   |  +2147483647 / 231 - 1  |
-| ULONG_MAX   | `unsigned long int`   |  +2147483647 / 231 - 1  |
-| LLONG_MIN   | `long long int`   |  -9223372036854775807 / -(263 - 1)  |
-| LLONG_MAX   | `long long int`   |  9223372036854775807 / 263 - 1  |
-| ULLONG_MAX   | `unsigned long long int`   |  18446744073709551615 / 264 - 1  |
+| Macro      | Type                                             | Value                             |
+| ---------- | ------------------------------------------------ | --------------------------------- |
+| CHAR_BIT   | smallest object that is not a bit-field (byte) 8 |
+| SCHAR_MIN  | `signed char`                                    | -127 / -(27-1)                    |
+| SCHAR_MAX  | `signed char`                                    | +127 / 27-1                       |
+| UCHAR_MAX  | `unsigned char`                                  | 255 / 28-1                        |
+| CHAR_MIN   | `char`                                           | see below                         |
+| CHAR_MAX   | `char`                                           | see below                         |
+| SHRT_MIN   | `short int`                                      | -32767 / -(215 -1)                |
+| SHRT_MAX   | `short int`                                      | +32767 / 215 -1                   |
+| USHRT_MAX  | `unsigned short int`                             | 65535 / 216 -1                    |
+| INT_MIN    | `int`                                            | -32767 / -(215 -1)                |
+| INT_MAX    | `int`                                            | +32767 / 215 -1                   |
+| UINT_MAX   | `unsigned int`                                   | 65535 / 216 -1                    |
+| LONG_MIN   | `long int`                                       | -2147483647 / -(231 - 1)          |
+| LONG_MAX   | `long int`                                       | +2147483647 / 231 - 1             |
+| ULONG_MAX  | `unsigned long int`                              | +2147483647 / 231 - 1             |
+| LLONG_MIN  | `long long int`                                  | -9223372036854775807 / -(263 - 1) |
+| LLONG_MAX  | `long long int`                                  | 9223372036854775807 / 263 - 1     |
+| ULLONG_MAX | `unsigned long long int`                         | 18446744073709551615 / 264 - 1    |
 
 If the value of an object of type `char` sign-extends when used in an expression, the value of CHAR_MIN shall be the same as that of SCHAR_MIN and the value of CHAR_MAX shall be the same as that of SCHAR_MAX. If the value of an object of type `char` does not sign-extend in an expression, the value of CHAR_MIN shall be 0 and the value of CHAR_MAX shall be the same as that of UCHAR_MAX.
 
 C99 standard added a new header, `<stdint.h>`, which contains definitions for fixed width integers, the fixed width integer example for a more in-depth explanation.
 
-### Floating Point Constants
+#### Floating Point Constants
 
 C lang has three mandatory real floating point types, `float`, `double`, `long double`.
 
@@ -372,7 +383,7 @@ double sd = 1.2e3; // decimal fraction 1.2 is scaled by 10*3. that is 1200.0
 
 Header `<float.h>` defines various limits for floating point operations.
 
-### String Literals
+#### String Literals
 
 ```C
 char* str = "hello, world"; // string literal
@@ -395,5 +406,38 @@ s1[0] = 'F'; // compiler error!
 
 /* Multiple string literals are concacted at compile time, which
 means you can write constuct like these */
+/* pre C99 only two narrow or two wide string literals may be concatenated */
+char* s1 = "Hello, " "World";
+
+/* post C99 more than two can be concatenated
+concatenation is impementation defined*/
+char* s1 = "Hello" ", " "World";
+
+/* common usage */
+char* ftm = "%" PRId16; // PRId16 macro since C99
+
+/* String literals, same as character constants, support different character sets */
+
+/* normal string literal, of type char[] */
+char* s1 = "abs";
+
+/* wide character string literal, of type wchar_t[] */
+wchar_t* s2 = L"abc";
+
+// >= C11
+/* UTF-8 string literal, of type char[] */
+char* s3 = u8"abc";
+
+/* 16-bit wide string literal, of type char16_t[] */
+char16_t* s4 = u"abc";
+
+/* 32-bit wide string literal, of type char32_t[] */
+char32_t* s5 = U"abc";
 
 ```
+
+### Operators
+
+Symbol for mathematical, relational or logical operation.
+
+Many C operators are binary operators, meaning they have two operands. So in `a / b`, `/` is a binary operator that takes two operands (a,b). Unary operators take one operand (e.g., ~ or ++). `? :` is the only ternary operator.
