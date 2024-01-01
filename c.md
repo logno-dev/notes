@@ -326,3 +326,74 @@ long int li = 65536l; // l or L represent long int
 Without a suffix the constant has the first type that fits its value, that is a decimal constant that is larger than INT_MAX is of type `long` if possible, or `long long` otherwise.
 
 The header file `<limits.h>` describes the limits of integers as folows. Their implementation-defined values shall be equal or greater in magnitude (absolute value) to those shown below, with the same sign.
+
+| Macro    | Type    | Value    |
+|---------------- | --------------- | --------------- |
+| CHAR_BIT    | smallest object that is not a bit-field (byte) 8    |
+| SCHAR_MIN    | `signed char`    | -127 / -(27-1)    |
+| SCHAR_MAX   | `signed char`   | +127 / 27-1    |
+| UCHAR_MAX   | `unsigned char`   | 255 / 28-1   |
+| CHAR_MIN   | `char`   | see below   |
+| CHAR_MAX   | `char`   | see below   |
+| SHRT_MIN   | `short int`   |  -32767 / -(215 -1)  |
+| SHRT_MAX   | `short int`   |  +32767 / 215 -1  |
+| USHRT_MAX   | `unsigned short int`   |  65535 / 216 -1  |
+| INT_MIN   | `int`   |  -32767 / -(215 -1)  |
+| INT_MAX   | `int`   |  +32767 / 215 -1  |
+| UINT_MAX   | `unsigned int`   |  65535 / 216 -1  |
+| LONG_MIN   | `long int`   |  -2147483647 / -(231 - 1)  |
+| LONG_MAX   | `long int`   |  +2147483647 / 231 - 1  |
+| ULONG_MAX   | `unsigned long int`   |  +2147483647 / 231 - 1  |
+| LLONG_MIN   | `long long int`   |  -9223372036854775807 / -(263 - 1)  |
+| LLONG_MAX   | `long long int`   |  9223372036854775807 / 263 - 1  |
+| ULLONG_MAX   | `unsigned long long int`   |  18446744073709551615 / 264 - 1  |
+
+If the value of an object of type `char` sign-extends when used in an expression, the value of CHAR_MIN shall be the same as that of SCHAR_MIN and the value of CHAR_MAX shall be the same as that of SCHAR_MAX. If the value of an object of type `char` does not sign-extend in an expression, the value of CHAR_MIN shall be 0 and the value of CHAR_MAX shall be the same as that of UCHAR_MAX.
+
+C99 standard added a new header, `<stdint.h>`, which contains definitions for fixed width integers, the fixed width integer example for a more in-depth explanation.
+
+### Floating Point Constants
+
+C lang has three mandatory real floating point types, `float`, `double`, `long double`.
+
+```C
+float f = 0.314f;        // suffix f or F denotes type float
+double d = 0.314;        // no suffix denotes double
+long double ld = 0.3141; // suffix l or L denotes long double
+
+/* the different parts of a floating point definition are optional */
+double x = 1.; // valid. fractional part is optional
+double x = .1; // valid. whole-number part is optional
+
+/* they can also be defined in scientific notation */
+double sd = 1.2e3; // decimal fraction 1.2 is scaled by 10*3. that is 1200.0
+
+```
+
+Header `<float.h>` defines various limits for floating point operations.
+
+### String Literals
+
+```C
+char* str = "hello, world"; // string literal
+
+/* string literals can be used to initialize arrays */
+char a1[] = "abc"; // a1 is char[4] holding {'a','b','c','\0'}
+char a2[4] = "abc"; // same as a1
+char a3[3] = "abc"; // a1 iss char[3] holding {'a','b', 'c'}, missing the '\0'
+```
+
+String leterals are **not modifiable** (and in fact may be placed in read-only memory such as .rodata). Attempting to alter their values results in undefined behaviour.
+
+```C
+char* s = "foobar";
+s[0] = 'F'; // undefined behaviour
+
+/* it's good practice to denote string literals such, by using 'const' */
+char const* s1 = "foobar";
+s1[0] = 'F'; // compiler error!
+
+/* Multiple string literals are concacted at compile time, which
+means you can write constuct like these */
+
+```
