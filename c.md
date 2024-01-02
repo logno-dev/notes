@@ -441,3 +441,156 @@ char32_t* s5 = U"abc";
 Symbol for mathematical, relational or logical operation.
 
 Many C operators are binary operators, meaning they have two operands. So in `a / b`, `/` is a binary operator that takes two operands (a,b). Unary operators take one operand (e.g., ~ or ++). `? :` is the only ternary operator.
+
+#### Relational Operator
+
+Binary operator that checks for truth between two operands. Evaluated to 1 (true) or 0 (false).
+
+##### Equal
+
+```C
+1 == 0;             // evaluates to 0
+1 == 1;             // evaluates to 1
+
+int x = f;
+int y = 5;
+int *xptr = &x, *yptr = &y;
+xptr == yptr;    // evaluates to 0, operands hold different location addresses.
+*xptr == *yptr;  // evaluates to 1, operands point at locations that hold the same value
+```
+
+##### Not Equal
+
+```C
+1 != 0;             // evaluates to 1
+1 != 1;             // evaluates to 0
+
+int x = f;
+int y = 5;
+int *xptr = &x, *yptr = &y;
+xptr != yptr;    // evaluates to 1, operands hold different location addresses.
+*xptr != *yptr;  // evaluates to 0, operands point at locations that hold the same value
+```
+
+`!` can also be applied directly to a variable. `!someVariable` is equivelant to `someVariable == 0`
+
+##### Other
+
+- `>`
+- `<`
+- `>=`
+- `<=`
+
+#### Conditional Operator/Ternary Operator
+
+```C
+a = b ? c : d;
+
+// is equivalent to:
+
+if (b)
+    a = c;
+else
+    a = d;
+```
+
+Ternaries can be nested. The following program writes even and odd numbers to two seperate files.
+
+```C
+#include<stdio.h>
+
+int main() {
+    FILE *even, *odds;
+    int n = 10;
+    size_t k = 0;
+
+    even = fopen("even.md", "w");
+    odds = fopen("odds.md", "w");
+
+    for(k = 1; k < n + 1; k++) {
+        k%2==0 ? fprintf(even, "\t%5d\n", k)
+               : fprintf(odds, "\t%5d\n", k);
+    }
+    fclose(even);
+    fclose(odds);
+
+    return 0;
+}
+```
+
+#### Bitwise Operators
+
+Bitwise operators can be used to perform a bit level operation on variables. The six bitwise operators in C are:
+
+| Symbol | Operator                      |
+| ------ | ----------------------------- |
+| &      | bitwise AND                   |
+| \|     | bitwise inclusive or          |
+| ^      | bitwise exclusive OR(XOR)     |
+| ~      | bitwise not(one's complement) |
+| <<     | logical left shift            |
+| >>     | logical right shift           |
+
+```C
+#include <stdio.h>
+
+int main(void) {
+    unsigned int a = 29;    // 29 = 0001 1101
+    unsigned int b = 48;    // 48 = 0011 0000
+    int c = 0;
+
+    c = a & b;              // 32 = 0001 0000
+    printf("%d & %d = %d\n", a, b, c);
+
+    c = a | b;              // 61 = 0011 1101
+    printf("%d | %d = %d\n", a, b, c);
+
+    c = a ^ b;              // 45 = 0010 1101
+    printf("%d ^ %d = %d\n");
+
+    c = ~a;                 // -30 = 1110 0010
+    printf("~%d = %d\n". a. c);
+
+    c = a << 2;             // 116 = 0111 0100
+    printf("%d << 2 = %d\n", a, c);
+
+    c = a >> 2;             // 7 = 0000 0111
+    printf("%d >> 2 = %d", a, c);
+
+    return 0
+}
+```
+
+Bitwise operations with signed types should be avoided because the sign bit of such a bit representation has a particular meaning. Particualr restrictions apply to the shift operators:
+
+- Left shifting a 1 bit into the signed bit is erroneous and leads to undefined behavior.
+- Right shifting a negative value (with sign bit 1) is implementation defined and therefore not portable.
+- If the value of the right operand of a shift operator is negative or greater than or equal to the width of the promoted left operand, the behavior is undefined.
+
+##### Masking
+
+Masking refers to the process of extracting the desired bits from (or transforming the desired bits in) a variable by using logical bitwise operations. The operand (a constant or variable) that is used to perform masking is called a mask.
+
+Masking is used in many different ways:
+
+- To decide the bit pattern of an integer variable.
+- To copy a portion of a given bit pattern to a new varialbe, while the remainder of the new variable is filled with 0s (using bitwise AND)
+- To copy a portion of a given bit pattern to a new varialbe, while the remainder of the new variable is filled with 1s (using bitwise OR)
+- To copy a portion of a given bit pattern to a new variable, while the remainder of the orginal bit pattern is inverted with the new variable (using bitwise exclusive OR)
+
+The following function uses a mask to display the bit pattern of a variable:
+
+```C
+#include <limits.h>
+void bit_pattern(int u) {
+    int i, x, word;
+    unsigned mask = 1;
+    word = CHAR_BIT * sizeof(int);
+    mask = mask << (word - 1);    // shift 1 to the leftmost position
+    for(i = 1; i<= word; i++) {
+        x = (u & mask) ? 1 : 0;   // identify the bit
+        printf("%d", x);          // print bit value
+        mask >>= 1;               // shift mask to the right by 1 bit
+    }
+}
+```
