@@ -3,6 +3,10 @@
 ## Contents
 
 - [Basics](#basics)
+  - [Base Structure](#base-structure)
+  - [Data Types](#data-types)
+    - [Integer Types](#integer-types)
+    - [Floating-point Types](#floating-point-types)
 
 ## Basics
 
