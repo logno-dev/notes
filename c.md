@@ -1,5 +1,9 @@
 # C Lang Notes
 
+## Contents
+
+- [Basics](#basics)
+
 ## Basics
 
 ### Base structure
