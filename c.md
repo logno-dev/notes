@@ -7,6 +7,9 @@
   - [Data Types](#data-types)
     - [Integer Types](#integer-types)
     - [Floating-point Types](#floating-point-types)
+  - [Variables](#variables)
+  - [Constants and Literals](#constants-and-literals)
+  - [Operators](#operators)
 
 ## Basics
 
@@ -256,7 +259,7 @@ int *fn(void);
 
 int (*fp)(void);
 // overriding the precedence of ():
-// fp is a pointer to a functino taking void and
+// fp is a pointer to a function taking void and
 // returning int
 
 int arr[5][8];
@@ -336,7 +339,7 @@ Decimal constants are always signed. Hexadecimal constants start with 0x or 0X a
 
 ```C
 /* suffixes to describe width and signedness : */
-long int i = 0x32; // no suffix represnt in, or long int
+long int i = 0x32; // no suffix represent in, or long int
 unsigned in ui = 65535u; // u or U represent unsigned int, or long int
 long int li = 65536l; // l or L represent long int
 
@@ -402,23 +405,23 @@ char a2[4] = "abc"; // same as a1
 char a3[3] = "abc"; // a1 iss char[3] holding {'a','b', 'c'}, missing the '\0'
 ```
 
-String leterals are **not modifiable** (and in fact may be placed in read-only memory such as .rodata). Attempting to alter their values results in undefined behaviour.
+String literals are **not modifiable** (and in fact may be placed in read-only memory such as .rodata). Attempting to alter their values results in undefined behavior.
 
 ```C
 char* s = "foobar";
-s[0] = 'F'; // undefined behaviour
+s[0] = 'F'; // undefined behavior
 
 /* it's good practice to denote string literals such, by using 'const' */
 char const* s1 = "foobar";
 s1[0] = 'F'; // compiler error!
 
-/* Multiple string literals are concacted at compile time, which
-means you can write constuct like these */
+/* Multiple string literals are concatenated at compile time, which
+means you can write construct like these */
 /* pre C99 only two narrow or two wide string literals may be concatenated */
 char* s1 = "Hello, " "World";
 
 /* post C99 more than two can be concatenated
-concatenation is impementation defined*/
+concatenation is implementation defined*/
 char* s1 = "Hello" ", " "World";
 
 /* common usage */
@@ -480,7 +483,7 @@ xptr != yptr;    // evaluates to 1, operands hold different location addresses.
 *xptr != *yptr;  // evaluates to 0, operands point at locations that hold the same value
 ```
 
-`!` can also be applied directly to a variable. `!someVariable` is equivelant to `someVariable == 0`
+`!` can also be applied directly to a variable. `!someVariable` is equivalent to `someVariable == 0`
 
 ##### Other
 
@@ -502,7 +505,7 @@ else
     a = d;
 ```
 
-Ternaries can be nested. The following program writes even and odd numbers to two seperate files.
+Ternaries can be nested. The following program writes even and odd numbers to two separate files.
 
 ```C
 #include<stdio.h>
@@ -569,7 +572,7 @@ int main(void) {
 }
 ```
 
-Bitwise operations with signed types should be avoided because the sign bit of such a bit representation has a particular meaning. Particualr restrictions apply to the shift operators:
+Bitwise operations with signed types should be avoided because the sign bit of such a bit representation has a particular meaning. Particular restrictions apply to the shift operators:
 
 - Left shifting a 1 bit into the signed bit is erroneous and leads to undefined behavior.
 - Right shifting a negative value (with sign bit 1) is implementation defined and therefore not portable.
@@ -582,9 +585,9 @@ Masking refers to the process of extracting the desired bits from (or transformi
 Masking is used in many different ways:
 
 - To decide the bit pattern of an integer variable.
-- To copy a portion of a given bit pattern to a new varialbe, while the remainder of the new variable is filled with 0s (using bitwise AND)
-- To copy a portion of a given bit pattern to a new varialbe, while the remainder of the new variable is filled with 1s (using bitwise OR)
-- To copy a portion of a given bit pattern to a new variable, while the remainder of the orginal bit pattern is inverted with the new variable (using bitwise exclusive OR)
+- To copy a portion of a given bit pattern to a new variable, while the remainder of the new variable is filled with 0s (using bitwise AND)
+- To copy a portion of a given bit pattern to a new variable, while the remainder of the new variable is filled with 1s (using bitwise OR)
+- To copy a portion of a given bit pattern to a new variable, while the remainder of the ordinal bit pattern is inverted with the new variable (using bitwise exclusive OR)
 
 The following function uses a mask to display the bit pattern of a variable:
 
